@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(dir \"c:\\\\Users\\\\Matheus\\\\Downloads\\\\pinferlp\\\\public\" /b)",
+      "Bash(npm install *)",
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git add *)",
+      "Bash(git rm *)",
+      "Bash(git commit -m 'feat: landing page Pinfer Metalúrgica — build inicial *)"
+    ]
+  }
+}
