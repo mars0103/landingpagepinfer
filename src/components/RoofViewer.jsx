@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import * as THREE from 'three'
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js'
+import { asset } from '../lib/asset'
 
 const ROOF_BASE_SCALE = 1
 const ROOF_FOCUS_SCALE = 1.08
@@ -275,7 +276,7 @@ export default function RoofViewer({ modelPath, topColor, bottomColor, layer }) 
           aria-pressed={String(freeRot)}
           onClick={toggleFreeRot}
         >
-          <img src="/assets/icone 360.svg" alt="" aria-hidden="true" className="icon-360" />
+          <img src={asset('assets/icone 360.svg')} alt="" aria-hidden="true" className="icon-360" />
           Vista 360°
         </button>
       )}

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { asset } from '../lib/asset'
 
 const WORDS = ['resistência', 'estética', 'desempenho']
 const TYPE_MS = 75
@@ -47,8 +48,8 @@ export default function Highlight() {
     <section className="highlight" id="produtos">
       <div className="highlight-card">
         <div className="highlight-visual" aria-hidden="true">
-          <img className="highlight-logo" src="/assets/LOGO PINFER VETORIZADA.svg" alt="" />
-          <img className="highlight-roof" src="/assets/image 39.png" alt="" />
+          <img className="highlight-logo" src={asset('assets/LOGO PINFER VETORIZADA.svg')} alt="" />
+          <img className="highlight-roof" src={asset('assets/image 39.png')} alt="" />
         </div>
         <div className="highlight-copy">
           <h2>Telhas metálicas feitas para entregar <TypedWord /></h2>

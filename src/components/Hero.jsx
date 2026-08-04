@@ -1,9 +1,15 @@
+import { asset } from '../lib/asset'
+
 export default function Hero() {
   return (
-    <section className="hero" id="inicio" data-cursor="SAIBA MAIS">
-      {/* Animated clouds */}
-      <img className="hero-cloud hero-cloud--a" src="/assets/CLOUDS 31 1.png" alt="" aria-hidden="true" />
-      <img className="hero-cloud hero-cloud--b" src="/assets/CLOUDS 43 1.png" alt="" aria-hidden="true" />
+    <section
+      className="hero"
+      id="inicio"
+      data-cursor="SAIBA MAIS"
+      style={{ backgroundImage: `url("${asset('assets/fundo-lp.jpeg')}")` }}
+    >
+      <img className="hero-cloud hero-cloud--a" src={asset('assets/CLOUDS 31 1.png')} alt="" aria-hidden="true" />
+      <img className="hero-cloud hero-cloud--b" src={asset('assets/CLOUDS 43 1.png')} alt="" aria-hidden="true" />
 
       <div className="hero-inner">
         <p className="eyebrow">

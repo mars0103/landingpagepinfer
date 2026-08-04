@@ -1,31 +1,32 @@
 import { useEffect, useRef } from 'react'
+import { asset } from '../lib/asset'
 
 const featureCards = [
   {
     size: 'small',
     variant: 'waves',
-    img: '/assets/Product image.png',
+    img: asset('assets/Product image.png'),
     imgClass: 'feature-waves',
     text: <>Telhas produzidas <span>com excelente padrão</span> de qualidade</>,
   },
   {
     size: 'large',
     variant: 'house',
-    img: '/assets/Product image(1).png',
+    img: asset('assets/Product image(1).png'),
     imgClass: 'feature-house',
     text: <>Aplicação <span>residencial, comercial e industrial</span></>,
   },
   {
     size: 'large',
     variant: 'star',
-    img: '/assets/Product image(2).png',
+    img: asset('assets/Product image(2).png'),
     imgClass: 'feature-star',
     text: <>Ótimo acabamento para <span>valorizar o projeto</span></>,
   },
   {
     size: 'large',
     variant: 'shield',
-    img: '/assets/Product image(3).png',
+    img: asset('assets/Product image(3).png'),
     imgClass: 'feature-shield',
     text: <>Proteção reforçada para <span>maior durabilidade</span></>,
   },

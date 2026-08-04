@@ -1,16 +1,17 @@
 import { useEffect, useRef } from 'react'
+import { asset } from '../lib/asset'
 
 const products = [
-  { img: '/assets/telhaondulada.png', label: 'Telha\nOndulada', aria: 'Telha ondulada' },
-  { img: '/assets/tp25.png', label: 'Telha\nTrapeizoidal 25', aria: 'Telha trapezoidal TP25' },
-  { img: '/assets/tp33.png', label: 'Telha\nTrapeizoidal 40', aria: 'Telha trapezoidal TP33' },
-  { img: '/assets/telhametalicacolonial.png', label: 'Telha\nColonial', aria: 'Telha metálica colonial' },
-  { img: '/assets/termoacusticadupla.png', label: 'Termoacústica\nDupla', aria: 'Telha termoacústica dupla' },
-  { img: '/assets/tp33(1).png', label: 'Telha\nTrapeizoidal 33', aria: 'Telha trapezoidal TP33 pintada' },
-  { img: '/assets/termoacusticafilme.png', label: 'Termoacústica\ncom Filme', aria: 'Telha termoacústica com filme' },
-  { img: '/assets/termoacusticasimples.png', label: 'Termoacústica\nSimples', aria: 'Telha termoacústica simples' },
-  { img: '/assets/lambrilcontinuo.png', label: 'Lambril\nContínuo', aria: 'Lambril contínuo' },
-  { img: '/assets/termoacusticabandeja.png', label: 'Termoacústica\nBandeja', aria: 'Telha termoacústica bandeja' },
+  { img: asset('assets/telhaondulada.png'), label: 'Telha\nOndulada', aria: 'Telha ondulada' },
+  { img: asset('assets/tp25.png'), label: 'Telha\nTrapeizoidal 25', aria: 'Telha trapezoidal TP25' },
+  { img: asset('assets/tp33.png'), label: 'Telha\nTrapeizoidal 40', aria: 'Telha trapezoidal TP33' },
+  { img: asset('assets/telhametalicacolonial.png'), label: 'Telha\nColonial', aria: 'Telha metálica colonial' },
+  { img: asset('assets/termoacusticadupla.png'), label: 'Termoacústica\nDupla', aria: 'Telha termoacústica dupla' },
+  { img: asset('assets/tp33(1).png'), label: 'Telha\nTrapeizoidal 33', aria: 'Telha trapezoidal TP33 pintada' },
+  { img: asset('assets/termoacusticafilme.png'), label: 'Termoacústica\ncom Filme', aria: 'Telha termoacústica com filme' },
+  { img: asset('assets/termoacusticasimples.png'), label: 'Termoacústica\nSimples', aria: 'Telha termoacústica simples' },
+  { img: asset('assets/lambrilcontinuo.png'), label: 'Lambril\nContínuo', aria: 'Lambril contínuo' },
+  { img: asset('assets/termoacusticabandeja.png'), label: 'Termoacústica\nBandeja', aria: 'Telha termoacústica bandeja' },
 ]
 
 function ProductCard({ product, hidden }) {

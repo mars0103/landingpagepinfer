@@ -1,9 +1,11 @@
+import { asset } from '../lib/asset'
+
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-inner">
         <div className="footer-main">
-          <img className="footer-logo" src="/assets/LOGO PINFER VETORIZADA.svg" alt="Pinfer Metalúrgica" />
+          <img className="footer-logo" src={asset('assets/LOGO PINFER VETORIZADA.svg')} alt="Pinfer Metalúrgica" />
           <div className="footer-column footer-contact">
             <h3>Contatos</h3>
             <p><strong>Endereço:</strong> Rua Paul Garfunkel, 420, Cidade Industrial - Curitiba/PR</p>

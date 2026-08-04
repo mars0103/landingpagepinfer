@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import RoofViewer from './RoofViewer'
+import { asset } from '../lib/asset'
 
 const swatches = [
   { hex: '#b8b8b8', label: 'Galvalume\nNatural' },
@@ -102,7 +103,7 @@ export default function Details() {
           </div>
 
           <RoofViewer
-            modelPath="/models/telhado(1).glb"
+            modelPath={asset('models/telhado(1).glb')}
             topColor={topColor}
             bottomColor={bottomColor}
             layer={activeLayer}

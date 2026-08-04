@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { asset } from '../lib/asset'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -20,7 +21,7 @@ export default function Header() {
         aria-label="Navegação principal"
       >
         <a className="brand" href="#inicio" aria-label="Pinfer Metalúrgica" onClick={close}>
-          <img className="logo-image" src="/assets/LOGO PINFER VETORIZADA.svg" alt="Pinfer Metalúrgica" />
+          <img className="logo-image" src={asset('assets/LOGO PINFER VETORIZADA.svg')} alt="Pinfer Metalúrgica" />
         </a>
         <button
           className="menu-toggle"
