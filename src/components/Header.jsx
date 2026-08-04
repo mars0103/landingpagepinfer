@@ -39,7 +39,7 @@ export default function Header() {
           <a href="#produtos" onClick={close}>Produtos</a>
           <a href="#telhas" onClick={close}>Telhas</a>
           <a href="#contato" onClick={close}>FAQ</a>
-          <a className="nav-quote" href="https://wa.me/554133471183" target="_blank" rel="noreferrer">
+          <a className="nav-quote" href="https://api.whatsapp.com/send/?phone=5541988887664&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vim%20pelo%20site%20da%20Pinfer%20e%20gostaria%20de%20receber%20um%20atendimento%20sobre%20materiais%20de%20a%C3%A7o." target="_blank" rel="noreferrer">
             Faça um orçamento
           </a>
         </div>

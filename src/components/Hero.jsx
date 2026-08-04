@@ -16,7 +16,7 @@ export default function Hero() {
           com produção responsável e alto padrão de durabilidade.
         </p>
         <div className="hero-actions">
-          <a className="button button-yellow" href="https://wa.me/554133471183" target="_blank" rel="noreferrer">
+          <a className="button button-yellow" href="https://api.whatsapp.com/send/?phone=5541988887664&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vim%20pelo%20site%20da%20Pinfer%20e%20gostaria%20de%20receber%20um%20atendimento%20sobre%20materiais%20de%20a%C3%A7o." target="_blank" rel="noreferrer">
             Solicitar orçamento
           </a>
           <a className="button button-hero-ghost" href="#telhas">
