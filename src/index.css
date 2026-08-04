@@ -198,7 +198,7 @@ button {
   right: 0;
   height: 100vh;
   min-height: 560px;
-  background: url("/assets/fundohero.webp") center / cover no-repeat;
+  background: url("/assets/fundo-lp.jpeg") center / cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
