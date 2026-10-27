@@ -12,8 +12,7 @@ const cards = [
 export default function Hero() {
   return (
     <section className="hero hero--v2" id="inicio" data-cursor="SAIBA MAIS">
-      <div className="hv-bg" style={{ backgroundImage: `url("${asset('assets/pinfer-fachada.jpg')}")` }} />
-      <img className="hv-telha" src={asset('assets/hero-telha-bg.png')} alt="" aria-hidden="true" />
+      <div className="hv-bg" style={{ backgroundImage: `url("${asset('assets/hero-pinfer-telha.png')}")` }} aria-hidden="true" />
 
       <div className="hv-inner">
         <h1>

@@ -304,8 +304,9 @@
   .wa-float { right: 16px; bottom: 16px; width: 56px; height: 56px; }
 }
 
-/* ───────────── Hero v2: fachada desfocada + telha por cima ───────────── */
+/* ───────────── Hero: imagem única e conteúdo à esquerda ───────────── */
 .hero.hero--v2 {
+  --hero-gutter: clamp(24px, 5vw, 96px);
   background-color: #0a0a0a;
   align-items: center;
   justify-content: center;
@@ -318,9 +319,7 @@
   inset: 0;
   z-index: 0;
   background-size: cover;
-  background-position: center 62%;
-  filter: blur(3px);
-  transform: scale(1.06);
+  background-position: center;
 }
 
 .hv-bg::after {
@@ -328,45 +327,32 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, .48) 0%, rgba(0, 0, 0, .64) 100%);
-}
-
-.hv-telha {
-  position: absolute;
-  z-index: 1;
-  right: -50px;
-  top: -140px;
-  bottom: auto;
-  width: min(80%, 1120px);
-  height: auto;
-  pointer-events: none;
-  -webkit-mask-image: linear-gradient(90deg, transparent 6%, #000 40%), linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(90deg, transparent 6%, #000 40%), linear-gradient(180deg, #000 0%, #000 70%, transparent 100%);
-  mask-composite: intersect;
+    linear-gradient(90deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .48) 32%, rgba(0, 0, 0, .08) 64%, transparent 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, .48) 0%, transparent 35%);
 }
 
 .hv-inner {
   position: relative;
   z-index: 2;
-  width: min(1100px, calc(100% - 48px));
-  margin: -40px auto 0;
+  width: calc(100% - 2 * var(--hero-gutter));
+  margin: 0 auto;
+  padding: 32px 0 120px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 34px;
-  text-align: center;
+  align-items: flex-start;
+  gap: 24px;
+  text-align: left;
   color: #fff;
 }
 
 .hero--v2 h1 {
   margin: 0;
   display: block;
-  font-size: clamp(50px, 7.4vw, 108px);
+  font-size: clamp(50px, 5.8vw, 88px);
   font-weight: 600;
   line-height: .96;
   letter-spacing: 0;
-  text-align: center;
+  text-align: left;
   text-transform: none;
   text-shadow: none;
   color: #fff;
@@ -375,14 +361,14 @@
 .hero--v2 h1 span { color: var(--yellow); }
 
 .hv-cards {
-  width: 100%;
+  width: min(420px, 100%);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: 1fr;
+  gap: 10px;
 }
 
 .hv-cards article {
-  padding: 18px 22px;
+  padding: 12px 18px;
   text-align: left;
   border: 1px solid rgba(255, 255, 255, .26);
   border-radius: 18px;
@@ -391,8 +377,8 @@
   backdrop-filter: blur(16px);
 }
 
-.hv-cards h3 { margin: 0 0 6px; font-size: 26px; font-weight: 600; line-height: 1; }
-.hv-cards p { margin: 0; font-size: 15px; font-weight: 400; line-height: 1.15; color: rgba(255, 255, 255, .82); }
+.hv-cards h3 { margin: 0 0 5px; font-size: 22px; font-weight: 600; line-height: 1.1; }
+.hv-cards p { margin: 0; font-size: 15px; font-weight: 400; line-height: 1.25; color: rgba(255, 255, 255, .82); }
 
 .hv-cta {
   display: inline-flex;
@@ -427,6 +413,8 @@
 
 .hero--v2 .hero-stats {
   z-index: 2;
+  left: var(--hero-gutter);
+  width: calc(100% - 2 * var(--hero-gutter));
   bottom: 28px;
   padding: 14px 24px;
   border: 1px solid rgba(255, 255, 255, .22);
@@ -446,13 +434,35 @@
 }
 
 @media (max-width: 760px) {
-  .hv-telha { width: 195%; right: -75%; top: -50px; }
-  .hv-inner { width: calc(100% - 32px); margin-top: -30px; gap: 22px; }
+  .hero.hero--v2 { --hero-gutter: 16px; }
+  .hv-bg { background-position: 58% center; }
+  .hv-bg::after { background: linear-gradient(90deg, rgba(0, 0, 0, .76), rgba(0, 0, 0, .24)), linear-gradient(0deg, rgba(0, 0, 0, .48), transparent 45%); }
+  .hv-inner { gap: 22px; }
   .hero--v2 h1 { font-size: clamp(44px, 13vw, 62px); }
   .hv-cta { font-size: 19px; padding-left: 26px; }
   .hv-cta i { width: 50px; height: 50px; }
   .hero--v2 .hero-stats { left: 16px; width: calc(100% - 32px); bottom: 14px; padding: 10px 16px; border-radius: 20px; font-size: 12px; }
   .hero--v2 .hero-stats b { font-size: 18px; }
+}
+
+/* Mantém título, benefícios, botão e números acessíveis em telas menores. */
+@media (max-width: 760px), (max-height: 700px) {
+  .hero.hero--v2 {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+    flex-direction: column;
+    gap: 32px;
+    padding: 48px 0 24px;
+  }
+  .hv-inner { padding: 0; }
+  .hero--v2 .hero-stats {
+    position: relative;
+    left: auto;
+    bottom: auto;
+    margin: 0 auto;
+  }
+  .cfg { margin-top: 0; }
 }
 
 /* ───────────── Botões de orçamento / WhatsApp em verde ───────────── */
