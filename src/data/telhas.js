@@ -87,25 +87,25 @@ export const TELHAS = [
     aplic: 'Portões e fechamentos laterais de galpões, indústrias e residências.',
   },
   {
-    id: 'termo-simples', nome: 'Termoacústica Simples', grupo: 'Termoacústicas', img: 'assets/termoacusticasimples.png',
+    id: 'termo-simples', nome: 'Termoacústica Simples', grupo: 'Termoacústicas', img: 'assets/fotos/simples.jpeg',
     eps: ['30', '50', '100'], perfis: ['TP 40', 'TP 33', 'TP 25', 'Ondulada', 'Colonial'],
     desc: 'Opção prática e econômica, com isolamento térmico e acústico e estrutura mais leve.',
     aplic: 'Residencial, empresarial ou industrial. Excelente custo-benefício.',
   },
   {
-    id: 'termo-dupla', cores: true, modelo3d: 'models/telhado(1).glb', nome: 'Termoacústica Dupla', grupo: 'Termoacústicas', img: 'assets/termoacusticadupla.png',
+    id: 'termo-dupla', cores: true, modelo3d: 'models/telhado(1).glb', nome: 'Termoacústica Dupla', grupo: 'Termoacústicas', img: 'assets/fotos/sanduiche.jpeg',
     eps: ['30', '50', '100'], perfis: ['TP 40', 'TP 33', 'TP 25', 'Ondulada'],
     desc: 'Estrutura sanduíche: EPS entre duas chapas de aço. Máximo conforto térmico e acústico.',
     aplic: 'Residencial, empresarial ou industrial.',
   },
   {
-    id: 'termo-filme', nome: 'Termoacústica com Filme', grupo: 'Termoacústicas', img: 'assets/termoacusticafilme.png',
+    id: 'termo-filme', nome: 'Termoacústica com Filme', grupo: 'Termoacústicas', img: 'assets/fotos/simples-com-manta.jpeg',
     eps: ['30', '50', '100'], perfis: ['TP 40', 'TP 33', 'TP 25', 'Ondulada', 'Colonial'],
     desc: 'Filme na face inferior: acabamento limpo, protege o núcleo isolante e aumenta a durabilidade.',
     aplic: 'Residencial, empresarial ou industrial.',
   },
   {
-    id: 'termo-bandeja', nome: 'Termoacústica Bandeja', grupo: 'Termoacústicas', img: 'assets/termoacusticabandeja.png',
+    id: 'termo-bandeja', nome: 'Termoacústica Bandeja', grupo: 'Termoacústicas', img: 'assets/fotos/termoacustica-bandeja.jpeg',
     eps: ['30', '50'], perfis: ['TP 40'],
     desc: 'Acabamento diferenciado, alta durabilidade e excelente desempenho estrutural.',
     aplic: 'Residencial, comercial e industrial; também painéis de câmaras frias.',
@@ -140,10 +140,10 @@ const colonial = () => [
 const manta = ['Manta térmica', 'Alumínio']
 
 export const TERMOS = [
-  { id: 'simples', nome: 'Termoacústica Simples', img: 'assets/termoacusticasimples.png', specs: tp40('980 mm') },
-  { id: 'simples-manta', nome: 'Termoacústica Simples com manta térmica', img: 'assets/termoacusticafilme.png', specs: [...tp40('980 mm (TP 40)'), manta] },
-  { id: 'sanduiche', nome: 'Termoacústica Sanduíche', img: 'assets/termoacusticadupla.png', specs: tp40('980 mm (TP 40)') },
-  { id: 'colonial-manta', nome: 'Termoacústica Colonial com manta térmica', img: 'assets/telha-colonial-manta.png', specs: [...colonial(), manta] },
-  { id: 'bandeja', nome: 'Termoacústica Bandeja', img: 'assets/termoacusticabandeja.png', specs: tp40('980 mm (TP 40)') },
-  { id: 'colonial-bandeja', nome: 'Termoacústica Colonial Bandeja', img: 'assets/telha-colonial-bandeja.png', specs: colonial() },
+  { id: 'simples', nome: 'Termoacústica Simples', img: 'assets/fotos/simples.jpeg', specs: tp40('980 mm') },
+  { id: 'simples-manta', nome: 'Termoacústica Simples com manta térmica', img: 'assets/fotos/simples-com-manta.jpeg', specs: [...tp40('980 mm (TP 40)'), manta] },
+  { id: 'sanduiche', nome: 'Termoacústica Sanduíche', img: 'assets/fotos/sanduiche.jpeg', specs: tp40('980 mm (TP 40)') },
+  { id: 'colonial-manta', nome: 'Termoacústica Colonial com manta térmica', img: 'assets/fotos/colonial-manta-termica.jpeg', specs: [...colonial(), manta] },
+  { id: 'bandeja', nome: 'Termoacústica Bandeja', img: 'assets/fotos/termoacustica-bandeja.jpeg', specs: tp40('980 mm (TP 40)') },
+  { id: 'colonial-bandeja', nome: 'Termoacústica Colonial Bandeja', img: 'assets/fotos/colonial-bandeja.jpeg', specs: colonial() },
 ]
