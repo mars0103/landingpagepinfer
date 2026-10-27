@@ -51,11 +51,10 @@ export default function Details() {
             <span className="mini-mark">P</span>
             Pinfer Metalúrgica
           </p>
-          <h2>Telhas metálicas feitas para entregar resistência, estética e desempenho</h2>
+          <h2>Escolha a cor da sua telha</h2>
           <p>
-            A Pinfer oferece soluções em telhas trapezoidais para projetos residenciais,
-            comerciais e industriais, com fabricação pensada para unir durabilidade,
-            excelente acabamento e confiança em cada aplicação.
+            Veja como a telha fica em 12 cores da paleta RAL, gire o modelo em 3D
+            e peça o orçamento já com a cor definida.
           </p>
           <a className="button button-yellow button-whatsapp" href="https://api.whatsapp.com/send/?phone=5541988887664&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vim%20pelo%20site%20da%20Pinfer%20e%20gostaria%20de%20receber%20um%20atendimento%20sobre%20materiais%20de%20a%C3%A7o." target="_blank" rel="noreferrer">
             Solicitar orçamento

@@ -1,14 +1,14 @@
 import { useEffect } from 'react'
 import Lenis from 'lenis'
 import CustomCursor from './components/CustomCursor'
-import Header from './components/Header'
 import Hero from './components/Hero'
-import Why from './components/Why'
-import Details from './components/Details'
-import Highlight from './components/Highlight'
-import Products from './components/Products'
+import Configurator from './components/Configurator'
+import ProductsGrid from './components/ProductsGrid'
+import Metrics from './components/Metrics'
 import FAQ from './components/FAQ'
 import Footer from './components/Footer'
+import WhatsAppFloat from './components/WhatsAppFloat'
+import './novo.css'
 
 export default function App() {
   useEffect(() => {
@@ -19,16 +19,15 @@ export default function App() {
   return (
     <>
       <CustomCursor />
-      <Header />
       <main>
         <Hero />
-        <Why />
-        <Details />
-        <Highlight />
-        <Products />
+        <Configurator />
+        <ProductsGrid />
+        <Metrics />
         <FAQ />
       </main>
       <Footer />
+      <WhatsAppFloat />
     </>
   )
 }

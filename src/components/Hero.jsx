@@ -1,38 +1,48 @@
 import { asset } from '../lib/asset'
+import { METRICAS, WHATSAPP_NUMBER } from '../data/telhas'
+
+const WHATSAPP = `https://api.whatsapp.com/send/?phone=${WHATSAPP_NUMBER}&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vim%20pelo%20site%20da%20Pinfer%20e%20gostaria%20de%20receber%20um%20atendimento%20sobre%20materiais%20de%20a%C3%A7o.`
+
+const cards = [
+  { t: 'Alta durabilidade', d: 'Aço Zincalume / Galvalume de longa vida útil.' },
+  { t: 'Conforto térmico', d: 'Núcleo isolante em EPS ou PIR.' },
+  { t: 'Isolamento acústico', d: 'Redução de calor e ruídos nas termoacústicas.' },
+]
 
 export default function Hero() {
   return (
-    <section
-      className="hero"
-      id="inicio"
-      data-cursor="SAIBA MAIS"
-      style={{ backgroundImage: `url("${asset('assets/fundo-lp.jpeg')}")` }}
-    >
-      <img className="hero-cloud hero-cloud--a" src={asset('assets/CLOUDS 31 1.png')} alt="" aria-hidden="true" />
-      <img className="hero-cloud hero-cloud--b" src={asset('assets/CLOUDS 43 1.png')} alt="" aria-hidden="true" />
+    <section className="hero hero--v2" id="inicio" data-cursor="SAIBA MAIS">
+      <div className="hv-bg" style={{ backgroundImage: `url("${asset('assets/pinfer-fachada.jpg')}")` }} />
+      <img className="hv-telha" src={asset('assets/hero-telha-bg.png')} alt="" aria-hidden="true" />
 
-      <div className="hero-inner">
-        <p className="eyebrow">
-          <span className="mini-mark">P</span>
-          Pinfer Metalúrgica
-        </p>
-        <h1>Telhas metálicas com qualidade, resistência e acabamento profissional</h1>
-        <p className="hero-subtitle">
-          Soluções em telhas trapezoidais para aplicações residenciais, comerciais e industriais,
-          com produção responsável e alto padrão de durabilidade.
-        </p>
-        <div className="hero-actions">
-          <a className="button button-yellow" href="https://api.whatsapp.com/send/?phone=5541988887664&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Vim%20pelo%20site%20da%20Pinfer%20e%20gostaria%20de%20receber%20um%20atendimento%20sobre%20materiais%20de%20a%C3%A7o." target="_blank" rel="noreferrer">
-            Solicitar orçamento
-          </a>
-          <a className="button button-hero-ghost" href="#telhas">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-              <path d="M12 5c5.1 0 8.7 4.4 9.7 5.8a2 2 0 0 1 0 2.4C20.7 14.6 17.1 19 12 19s-8.7-4.4-9.7-5.8a2 2 0 0 1 0-2.4C3.3 9.4 6.9 5 12 5Zm0 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-            </svg>
-            Ver modelos
-          </a>
+      <div className="hv-inner">
+        <h1>
+          Telhas direto<br />
+          <span>de fábrica</span>
+        </h1>
+
+        <div className="hv-cards">
+          {cards.map((c) => (
+            <article key={c.t}>
+              <h3>{c.t}</h3>
+              <p>{c.d}</p>
+            </article>
+          ))}
         </div>
+
+        <a className="hv-cta" href={WHATSAPP} target="_blank" rel="noreferrer">
+          <span>Solicitar orçamento</span>
+          <i aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+          </i>
+        </a>
       </div>
+
+      <ul className="hero-stats" aria-label="A Pinfer em números">
+        {METRICAS.map((m) => (
+          <li key={m.label}><b>+{m.value.toLocaleString('pt-BR')}{m.suffix}</b> {m.label}</li>
+        ))}
+      </ul>
     </section>
   )
 }

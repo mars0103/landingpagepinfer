@@ -8,11 +8,11 @@ const ROOF_FOCUS_SCALE = 1.08
 const ROOF_FOCUS_HOLD = 500
 const BASE_ROT_X = -0.32
 
-const cloneMaterial = (material) => {
+const cloneMaterial = (material, painted = false) => {
   const cloned = material.clone()
   // Painted steel roofing: metal base visible under paint, semi-gloss finish
-  cloned.metalness = 0.45
-  cloned.roughness = 0.52
+  cloned.metalness = painted ? 0.15 : 0.45
+  cloned.roughness = painted ? 0.5 : 0.52
   return cloned
 }
 
@@ -173,19 +173,21 @@ export default function RoofViewer({ modelPath, topColor, bottomColor, layer }) 
         const topRoot = findLayerRoot(effectiveRoot, ['cima', 'superior', 'top'])
         const botRoot = findLayerRoot(effectiveRoot, ['baixo', 'inferior', 'bottom'])
 
+        // Modelos de chapa única (sem camadas cima/baixo): a cor vale para a telha inteira
+        const hasLayers = Boolean(topRoot || botRoot)
         model.traverse((object) => {
           if (!object.isMesh) return
-          const isTop = isDescendantOf(object, topRoot)
-          const isBot = isDescendantOf(object, botRoot)
+          const isTop = hasLayers ? isDescendantOf(object, topRoot) : true
+          const isBot = hasLayers ? isDescendantOf(object, botRoot) : false
           if (Array.isArray(object.material)) {
             object.material = object.material.map((mat) => {
-              const m = cloneMaterial(mat)
+              const m = cloneMaterial(mat, !hasLayers)
               if (isTop) topMaterials.add(m)
               if (isBot) bottomMaterials.add(m)
               return m
             })
           } else if (object.material) {
-            object.material = cloneMaterial(object.material)
+            object.material = cloneMaterial(object.material, !hasLayers)
             if (isTop) topMaterials.add(object.material)
             if (isBot) bottomMaterials.add(object.material)
           }
@@ -196,7 +198,7 @@ export default function RoofViewer({ modelPath, topColor, bottomColor, layer }) 
         const center = box.getCenter(new THREE.Vector3())
         const largestSide = Math.max(size.x, size.y, size.z)
         model.position.sub(center)
-        model.scale.multiplyScalar(3.55 / largestSide)
+        model.scale.multiplyScalar((hasLayers ? 3.55 : 2.55) / largestSide)
         modelGroup.add(model)
         modelGroup.position.y = -0.03
         modelGroup.rotation.set(BASE_ROT_X + flip.x, pointer.rotationY, 0.08)

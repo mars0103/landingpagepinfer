@@ -198,14 +198,22 @@ button {
   right: 0;
   height: 100vh;
   min-height: 560px;
-  background-position: center;
+  background-position: right center;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   z-index: 0;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 0, 0, .72) 0%, rgba(0, 0, 0, .35) 42%, rgba(0, 0, 0, 0) 68%);
+  pointer-events: none;
 }
 
 /* Cloud images */
@@ -239,12 +247,66 @@ button {
 .hero-inner {
   position: relative;
   z-index: 1;
-  width: min(780px, calc(100% - 40px));
-  margin-top: -80px; /* pull content above vertical center */
-  text-align: center;
+  width: min(1240px, calc(100% - 48px));
+  margin: 60px auto 0;
+  text-align: left;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.hero h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  max-width: none;
+  font-size: clamp(54px, 8vw, 104px);
+  font-weight: 600;
+  line-height: .92;
+  text-transform: uppercase;
+  text-align: left;
+  color: #fff;
+}
+
+.hero-title-mark {
+  display: inline-block;
+  padding: 4px 18px 10px;
+  border-radius: 10px;
+  background: var(--yellow);
+  color: #000;
+}
+
+.hero-benefits-row {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 36px;
+}
+
+.hero-benefits-row li {
+  display: flex;
   align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.hero-benefits-row img {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.button.hero-cta {
+  min-height: 64px;
+  font-size: 24px;
+  padding-inline: 34px 26px;
 }
 
 .hero-copy,
@@ -292,11 +354,7 @@ button {
 }
 
 .hero h1 {
-  max-width: 1800px;
-  font-size: 45px;
-  color: #fff;
-  text-align: center;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.18);
+  text-shadow: none;
 }
 
 .hero-subtitle {
@@ -474,15 +532,10 @@ button {
 .why {
   position: relative;
   z-index: 1;
-  /* Push below the fixed hero — this is what creates the slide-over effect */
-  margin-top: 100vh;
-  margin-top: 100svh;
   min-height: 780px;
   padding: 96px 0 72px;
   background: var(--yellow);
   overflow: hidden;
-  border-radius: 40px 40px 0 0;
-  box-shadow: 0 -40px 100px rgba(0, 0, 0, 0.28), 0 -4px 0 rgba(0,0,0,0.06);
 }
 
 .why-copy {
@@ -639,8 +692,8 @@ button {
 .details {
   position: relative;
   z-index: 1;
-  padding: 120px 0 86px;
-  background: #fff;
+  padding: 110px 0 86px;
+  background: #eae7d6;
 }
 
 .details-inner {
@@ -1056,15 +1109,39 @@ button[data-layer="bottom"].is-active .li-bot { height: 14px; }
 .products {
   position: relative;
   z-index: 1;
-  min-height: 730px;
-  padding: 0 0 154px;
+  /* Push below the fixed hero — this is what creates the slide-over effect */
+  margin-top: 100vh;
+  margin-top: 100svh;
+  padding: 96px 0 110px;
   overflow: hidden;
   background: #fff;
+  border-radius: 40px 40px 0 0;
+  box-shadow: 0 -40px 100px rgba(0, 0, 0, 0.28), 0 -4px 0 rgba(0,0,0,0.06);
+}
+
+.product-grid {
+  width: min(1240px, calc(100% - 40px));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.product-grid .product-card {
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
 }
 
 .products-heading {
-  width: min(1150px, calc(100% - 40px));
-  margin: 0 auto 88px;
+  width: min(1240px, calc(100% - 40px));
+  margin: 0 auto 56px;
 }
 
 .products h2 {
@@ -1487,6 +1564,7 @@ button[data-layer="bottom"].is-active .li-bot { height: 14px; }
   .menu-toggle span {
     width: 18px;
     margin: 2.5px 0;
+    background: #fff;
   }
 
   .primary-menu {
@@ -2061,4 +2139,16 @@ button[data-layer="bottom"].is-active .li-bot { height: 14px; }
   .contact-metal-slot {
     width: 116px;
   }
+}
+
+/* ── Hero com foto de telha / seções reordenadas (mobile) ── */
+@media (max-width: 760px) {
+  .hero { background-position: 68% center; }
+  .hero::before { background: linear-gradient(180deg, rgba(0, 0, 0, .6) 0%, rgba(0, 0, 0, .3) 100%); }
+  .hero-inner { margin-top: 40px; gap: 22px; }
+  .hero h1 { font-size: clamp(44px, 13vw, 64px); }
+  .hero-benefits-row { gap: 14px; }
+  .hero-benefits-row li { font-size: 17px; }
+  .products { padding: 64px 0 70px; border-radius: 18px 18px 0 0; }
+  .why { border-radius: 0; }
 }
