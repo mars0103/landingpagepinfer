@@ -30,9 +30,8 @@
 .cfg {
   position: relative;
   z-index: 1;
-  /* empurra para baixo da hero fixa (efeito de deslizar por cima) */
-  margin-top: 100vh;
-  margin-top: 100svh;
+  /* A hero ocupa o fluxo e fica presa enquanto esta seção desliza por cima. */
+  margin-top: 0;
   padding: 92px 0 100px;
   color: #fff;
   background-color: #0a0a0a;
@@ -307,6 +306,9 @@
 /* ───────────── Hero: imagem única e conteúdo à esquerda ───────────── */
 .hero.hero--v2 {
   --hero-gutter: clamp(24px, 5vw, 96px);
+  position: sticky;
+  /* Em telas baixas, deixa ler a hero inteira antes de fixar sua base. */
+  top: min(0px, calc(100svh - var(--hero-height, 100svh)));
   background-color: #0a0a0a;
   align-items: center;
   justify-content: center;
@@ -448,7 +450,6 @@
 /* Mantém título, benefícios, botão e números acessíveis em telas menores. */
 @media (max-width: 760px), (max-height: 700px) {
   .hero.hero--v2 {
-    position: relative;
     height: auto;
     min-height: 100svh;
     flex-direction: column;
@@ -462,7 +463,6 @@
     bottom: auto;
     margin: 0 auto;
   }
-  .cfg { margin-top: 0; }
 }
 
 /* ───────────── Botões de orçamento / WhatsApp em verde ───────────── */

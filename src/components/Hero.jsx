@@ -1,3 +1,4 @@
+import { useLayoutEffect, useRef } from 'react'
 import { asset } from '../lib/asset'
 import { METRICAS, WHATSAPP_NUMBER } from '../data/telhas'
 
@@ -10,8 +11,21 @@ const cards = [
 ]
 
 export default function Hero() {
+  const heroRef = useRef(null)
+
+  useLayoutEffect(() => {
+    const hero = heroRef.current
+    const updateHeight = () => {
+      hero.style.setProperty('--hero-height', `${hero.getBoundingClientRect().height}px`)
+    }
+    updateHeight()
+    const observer = new ResizeObserver(updateHeight)
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <section className="hero hero--v2" id="inicio" data-cursor="SAIBA MAIS">
+    <section ref={heroRef} className="hero hero--v2" id="inicio" data-cursor="SAIBA MAIS">
       <div className="hv-bg" style={{ backgroundImage: `url("${asset('assets/hero-pinfer-telha.png')}")` }} aria-hidden="true" />
 
       <div className="hv-inner">
